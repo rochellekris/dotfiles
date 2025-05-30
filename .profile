@@ -15,11 +15,19 @@ function git_push_combo(){
 
 alias reload='source ~/.profile'
 
+
+# export PS1='\[\033]0;$(git branch &>/dev/null; if [ $? -eq 0 ]; then \
+# echo "\[\e[1m\]\u@\h\[\e[0m\]: \w [\[\e[33m\]$(git branch | grep ^* | sed s/\*\ //)\[\e[0m\]\
+# $(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; if [ "$?" -ne "0" ]; then \
+# echo "\[\e[1;31m\]*\[\e[0m\]"; fi)] \$ "; else \
+# echo "\[\e[1m\]\u@\h\[\e[0m\]: \w \$ "; fi )'
+
 export PS1='\[\033]0;$(git branch &>/dev/null; if [ $? -eq 0 ]; then \
-echo "\[\e[1m\]\u@\h\[\e[0m\]: \w [\[\e[33m\]$(git branch | grep ^* | sed s/\*\ //)\[\e[0m\]\
+echo "\[\e[1m\]\u@\h\[\e[0m\]: \[\e[32m\]\w\[\e[0m\] [\[\e[33m\]$(git branch | grep ^* | sed s/\*\ //)\[\e[0m\]\
 $(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; if [ "$?" -ne "0" ]; then \
 echo "\[\e[1;31m\]*\[\e[0m\]"; fi)] \$ "; else \
-echo "\[\e[1m\]\u@\h\[\e[0m\]: \w \$ "; fi )'
+echo "\[\e[1m\]\u@\h\[\e[0m\]: \[\e[32m\]\w\[\e[0m\] \$ "; fi )'
+
 
 # alias RS='open_rstudio'
 # function open_rstudio(){
