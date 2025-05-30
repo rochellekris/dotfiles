@@ -20,3 +20,26 @@ echo "\[\e[1m\]\u@\h\[\e[0m\]: \w [\[\e[33m\]$(git branch | grep ^* | sed s/\*\ 
 $(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; if [ "$?" -ne "0" ]; then \
 echo "\[\e[1;31m\]*\[\e[0m\]"; fi)] \$ "; else \
 echo "\[\e[1m\]\u@\h\[\e[0m\]: \w \$ "; fi )'
+
+# alias RS='open_rstudio'
+# function open_rstudio(){
+#     if [ -n $* ];
+#     then 
+#         echo "Missing R Project"
+#     else
+#         cd $*
+#         open -na Rstudio
+#     fi
+# }
+
+alias rocky='rocky'
+function rocky(){
+    case $* in 
+    "creds aws") open_aws;;
+    *) echo "Missing args";;
+    esac
+}
+function open_aws(){
+    # TODO: add log in steps 
+    open https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1#
+}
