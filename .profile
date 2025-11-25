@@ -1,5 +1,7 @@
 alias gpl='git pull'
 alias gs='git status'
+alias gf='git fetch'
+alias gcm='git checkout main'
 
 alias gps='git_push_combo'
 function git_push_combo(){
@@ -51,3 +53,6 @@ function open_aws(){
     # TODO: add log in steps 
     open https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1#
 }
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
